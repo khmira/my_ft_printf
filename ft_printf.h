@@ -2,6 +2,7 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdarg.h>
+# include <string.h>
 #define NUMBER 1
 #define CHAR 2
 #define STRING 3
@@ -15,5 +16,6 @@ int	ft_atoi(char *str);
 int	ft_isdigit(int c);
 size_t	ft_strlenD(int n);
 int	ft_strlen(char *str);
+int	ft_printf(const char *format, ...);
 int	cmpt;
 #endif
