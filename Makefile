@@ -1,5 +1,6 @@
 NAME=libftprintf.a
-SRCS=ft_putchar.c ft_putstr.c ft_strlen.c print_count.c ft_printf.c
+SRCS=ft_putchar.c ft_putstr.c ft_strlen.c print_count.c ft_printf.c \
+	 ft_atoi.c ft_isdigit.c initialize_prec_width_minus_zero.c
 OBJS= $(SRCS:.c=.o)
 CC = gcc
 all: $(NAME)

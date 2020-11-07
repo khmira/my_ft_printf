@@ -6,8 +6,16 @@
 #define NUMBER 1
 #define CHAR 2
 #define STRING 3
-
+#include<stdio.h>//a retirer
+typedef	struct	s_data
+{
+	int prec;//.percision
+	int w;
+	int m;
+	int z;
+}				t_data;
 void	print_count(void *text, int type_de_text);
+void	initialize(t_data *data);
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 void	ft_putnbrU(unsigned int nb);
