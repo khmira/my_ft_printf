@@ -14,8 +14,8 @@
 void	initialize(t_data *data)
 {
 	data->prec = 0;
-	data->w = 0;
-	data->m = 0;
-	data->z = 0;
+	data->width = 0;
+	data->minus = 0;
+	data->zero = 0;
 }
 

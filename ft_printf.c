@@ -29,7 +29,28 @@ int	ft_printf(const char *format, ...)
 		if (*text == '%')
 		{
 			text++;
-			if (*text == '.')//%*.*d
+	/*----------------------------ici commence width------------------------------------*/
+				/*----------------- cas minus ------------------------------*/
+			if (*text == '-') {
+				data->minus = 1;
+				(*text)++;printf("je suis minus\n");
+			}
+	/*----------------- cas zero ------------------------------*/
+			else if (*text == 0) {
+				data->zero = 1;
+				(*text)++;printf("je suis zero\n");
+			}
+			else if (ft_isdigit(*text) == 1) {//cas width == number
+					data->width = ft_atoi(text);//ici on ramasse TOUT width
+					text += ft_strlenD(data->width);//on avance de n case si width est de taille n
+				}//fin de width == number
+				/*-----------------cas width == *---------------------------*/
+				else if (*text == '*') {
+					data->width = va_arg(args, int); //on recupere width de *
+					text += ft_strlenD(data->width);//on avance de n case si width est de taille n
+				}//recuperer width dans tous les cas
+	//cas width == number
+			if (*text == '.')//%width.precd
 			{
 				text++;
 				/*----------------------------ici commence prec------------------------------------*/

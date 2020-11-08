@@ -11,9 +11,9 @@
 typedef	struct	s_data
 {
 	int prec;//.percision
-	int w;
-	int m;
-	int z;
+	int width;
+	int minus;
+	int zero;
 }				t_data;
 void	print_count(void *text, int type_de_text);
 void	initialize(t_data *data);
