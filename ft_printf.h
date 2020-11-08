@@ -3,6 +3,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <string.h>
+# include <stdlib.h>//pour faire appel a malloc
 #define NUMBER 1
 #define CHAR 2
 #define STRING 3

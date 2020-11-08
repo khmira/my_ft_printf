@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-size_t	ft_strlenD(int n)
+size_t	ft_strlenD(int n)//pour calculer la taille du prec et du widht, si c'est 1 ou 2 ou 3 chiffres dont ils sont composes:
 {
 	size_t	i;
 
