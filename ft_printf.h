@@ -10,13 +10,15 @@
 #include<stdio.h>//a retirer
 typedef	struct	s_data
 {
-	int prec;//.percision
-	int width;
-	int minus;
-	int zero;
+	int	prec;//.percision
+	int	width;
+	int	minus;
+	int	zero;
+	int	point;
 }				t_data;
 void	print_count(void *text, int type_de_text);
 void	initialize(t_data *data);
+void	execute_width_only(va_list *args, t_data *data); 
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 void	ft_putnbrU(unsigned int nb);

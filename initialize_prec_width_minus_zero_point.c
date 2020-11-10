@@ -17,5 +17,5 @@ void	initialize(t_data *data)
 	data->width = 0;
 	data->minus = 0;
 	data->zero = 0;
+	data->point = 0;
 }
-
