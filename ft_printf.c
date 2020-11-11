@@ -50,7 +50,7 @@ int	ft_printf(const char *format, ...)
 					text += ft_strlenD(data->width);//on avance de n case si width est de taille n
 				}//recuperer width dans tous les cas 
 			//execution du width sans prec
-			execute_width_only(&args, data);
+			execute_width_only(&args, data, text);
 	//cas on arive a .
 			if (*text == '.')//%width.precd
 			{

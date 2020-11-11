@@ -18,7 +18,7 @@ typedef	struct	s_data
 }				t_data;
 void	print_count(void *text, int type_de_text);
 void	initialize(t_data *data);
-void	execute_width_only(va_list *args, t_data *data); 
+void	execute_width_only(va_list *args, t_data *data, char *text); 
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
 void	ft_putnbrU(unsigned int nb);
