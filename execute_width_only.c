@@ -2,12 +2,19 @@
 
 void	execute_width_only(va_list *args, t_data *data, char *text) 
 {
-	if (data->zero == 1 && data->width == 0 && data->point == 0)//cas %0d
+		printf("je suis dans zero = %d width = %d",data->zero,data->width);
+	if (data->zero && data->width == 0)//cas %0d
+	{
+		printf(" je suis dans if zero = 1 width = 0 ");	
+	}
+	if (data->zero && data->width)//cas %0+width+d
 	{
 		//il faut regler le pb de mesure de la taille de mon nbr
-		if (ft_strlenD(ft_atoi(&args)) > 1)//si la taille du nbr est > 1 alors les 0 seront pas printés
+	//	printf("\nlire le args %d\n",args); 
+		if (ft_strlenD(ft_atoi((char *)args)) > 1)//si la taille du nbr est > 1 alors les 0 ne seront pas printés
 		{
-			printf("la taille du nbr est > 1");
+			printf("\nla taille du nbr est > 1\n");
+			
 		}	
 	}	
 }

@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 				data->zero = 1;printf("je suis dans 0");
 				(text)++;
 			}
-			else if (ft_isdigit(*text) == 1) {//cas width == number
+			 if (ft_isdigit(*text) == 1) {//cas width == number
 					data->width = ft_atoi(text);//ici on ramasse TOUT width
 					text += ft_strlenD(data->width);//on avance de n case si width est de taille n
 				}//fin de width == number

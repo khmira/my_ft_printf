@@ -16,6 +16,7 @@ typedef	struct	s_data
 	int	zero;
 	int	point;
 }				t_data;
+int	ft_printf(const char *format, ...);
 void	print_count(void *text, int type_de_text);
 void	initialize(t_data *data);
 void	execute_width_only(va_list *args, t_data *data, char *text); 
@@ -27,6 +28,6 @@ int	ft_atoi(char *str);
 int	ft_isdigit(int c);
 size_t	ft_strlenD(int n);
 int	ft_strlen(char *str);
-int	ft_printf(const char *format, ...);
+
 int	cmpt;
 #endif
