@@ -2,10 +2,11 @@
 
 void	execute_width_only(va_list *args, t_data *data, char *text) 
 {
-		printf("je suis dans zero = %d width = %d",data->zero,data->width);
+	//	printf("je suis dans zero = %d width = %d",data->zero,data->width);
 	if (data->zero && data->width == 0)//cas %0d
 	{
-		printf(" je suis dans if zero = 1 width = 0 ");	
+		printf(" je suis dans if zero = 1 width = 0 ");
+		ft_putnbr((int )va_arg(*args,int));	
 	}
 	if (data->zero && data->width)//cas %0+width+d
 	{
