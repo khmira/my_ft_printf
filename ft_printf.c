@@ -14,7 +14,7 @@
 
 
 
-int read_data(char *text, t_data *data){
+int read_data(char *text, t_data *data, va_list args){
 	
 
 	int i = 0;
@@ -22,6 +22,7 @@ int read_data(char *text, t_data *data){
 	/*----------------------------ici commence width------------------------------------*/
 				/*----------------- cas minus ------------------------------*/
 			if (text[i] == '-') {
+
 				data->minus = 1;
 				i++;
 			}
@@ -70,6 +71,7 @@ char *generate(char c, int len)
 	char *str = malloc(len+1);
 
 	int i = 0;
+	
 
 	while (i < len)
 	{
@@ -80,22 +82,30 @@ char *generate(char c, int len)
 	return str;
 
 }
+
+
+
+
+
+
 void	print_d(t_data *data, va_list args)
 {
 	int	my_number;//qu'on va récupérer de va_args
+	char	*width;
 
 
 	my_number = va_arg(args, int);
-	char trans_number = ft_itoa(my_number);//on transfrome mon nmbre en char pour faciliter la tache
+	char *trans_number = ft_itoa(my_number);//on transfrome mon nmbre en char pour faciliter la tache
 	//première chose à appliquer est "precision" car elle controle la taille, ex : 000000036
 	// .5d 5 00005 persiobn - len(nuber)
-	int len_number = ft_strlenD(my_number);
-	int toprint = data->prec - len_number;// le nombre de '0' à printer
+	int len_number = ft_strlenD(my_number); //donne la taille du nombre including -, ex -5
+		
+	int toprint =  data->prec  == 0 ? 0 :  data->prec - len_number;// le nombre de '0' à printer
 	char *lot_de_0 = generate('0', toprint);//
 	char *num_et_prec = ft_strjoin(lot_de_0, trans_number);
 	char *widht;//pour afficher 0 ou ' '
-	int minwidth = ft_strlen(num_et_prec);
-	
+	int minwidth =  data->width == 0     ? 0 :  data->width  -  ft_strlen(num_et_prec);
+	minwidth = minwidth < 0 ? 0 : minwidth;
 	if (data->zero == 1)
 	{
 		width = generate('0', minwidth);
@@ -108,41 +118,41 @@ void	print_d(t_data *data, va_list args)
 
 	if (data->minus == 0)
 	{
-		ft_putstr(width);
-		ft_putstr(num_et_prec);
+		ft_putstr_fd(width, 1);
+		ft_putstr_fd(num_et_prec, 1);
 	}
 	else 
 	{
 	
-		ft_putstr(num_et_prec);
-		ft_putstr(width);
+		ft_putstr_fd(num_et_prec, 1);
+		ft_putstr_fd(width, 1);
 	
 	}
 
 	
 }
-void router(t_data *data, char *text, va_list args)
+void router(t_data *data, char c, va_list args)//c est notre texte
 {
 	int	i;
 
 	i = 0;
-	if (text[i] == 'd' || text[i] == 'i'){
+	if (c == 'd' || c == 'i'){
 		print_d(data, args);
 	}
-	else if (text[i] == 'c' || text[i] == '%'){
-		print_c(data, args);
+	else if (c == 'c' || c == '%'){
+		//print_c(data, args);
 	}
-	else if (text[i] == 's'){
-		print_s(data, args);
+	else if (c == 's'){
+		//print_s(data, args);
 	}
-	else if (text[i] == 'x' || text[i] == 'X'){
-		print_x(data, args);
+	else if (c == 'x' || c == 'X'){
+		//print_x(data, args);
 	}
-	else if (text[i] == 'u'){
-		print_u(data, args);
+	else if (c == 'u'){
+		//print_u(data, args);
 	}
-	else if (text[i] == 'p'){
-		print_p(data, args);
+	else if (c == 'p'){
+		//print_p(data, args);
 	}
 }
 
@@ -164,12 +174,13 @@ int	ft_printf(const char *format, ...)
 	while (text[i] != '\0')
 	{
 		// %0.3d
-		if (text[i] == "%"){
+		if (text[i] == '%'){
 			i++;
-			i += read_data(&text[i], data);	
+			i += read_data(&text[i], data, args);	
+			router(data, text[i], args);
 			
 		}else {
-			ft_putchar(text[i]);
+			ft_putchar_fd(text[i], 1);
 			i++;
 			cmpt++;
 		}

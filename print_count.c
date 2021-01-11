@@ -24,7 +24,7 @@ void	print_count(void *text, int type_de_text)
 	/*ici cas d'1 texte sans %*/
 	else if (type_de_text == STRING)
 	{
-		ft_putstr((char *)text);
+		ft_putstr_fd((char *)text, 1);
 		cmpt += ft_strlen((char *)text);
 	}
 }

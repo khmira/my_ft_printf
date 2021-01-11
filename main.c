@@ -1,13 +1,8 @@
-#include "./ft_printf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 
 int main()
 {
-	int a = ft_printf("\nfake fuck you\n%0dg\n",1111111);printf("\n");
-	int b =    printf("\nreal fuck you\n%0dg\n",111111);printf("\n");
+	ft_printf("%80.5d",133);
 
-	printf("%d   |  %d\n", a, b);
-
-	return 0;
 }

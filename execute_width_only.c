@@ -6,7 +6,7 @@ void	execute_width_only(va_list *args, t_data *data, char *text)
 	if (data->zero && data->width == 0)//cas %0d
 	{
 		printf(" je suis dans if zero = 1 width = 0 ");
-		ft_putnbr((int )va_arg(*args,int));	
+		ft_putnbr_fd((int )va_arg(*args,int), 1);	
 	}
 	if (data->zero && data->width)//cas %0+width+d
 	{
